@@ -12,6 +12,9 @@ public class EmailDomain {
         System.out.println(extractEmailInformation(email2).isBrazilianDomain());
         System.out.println(extractEmailInformation(email3).isBrazilianDomain());
         System.out.println(extractEmailInformation(email4).isBrazilianDomain());
+
+        String day = "01";
+        System.out.println(String.valueOf(day).charAt(1));
     }
 
     public static EmailInfo extractEmailInformation(String email) {
