@@ -34,6 +34,5 @@ public class PasswordValidator {
         System.out.println(validatePassword("abcabdebdasubdsa"));
         System.out.println(validatePassword("A@#10101010101010"));
 
-        System.out.println("rato".equals("tora"));
     }
 }
