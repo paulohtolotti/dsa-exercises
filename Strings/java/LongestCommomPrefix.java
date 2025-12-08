@@ -10,13 +10,16 @@ public class LongestCommomPrefix {
 
         // Arrays.sort(v, Comparator.comparingInt(String::length));
         Arrays.sort(v);
-        String l = v[v.length - 1];
+        String first = v[0];
+        String last = v[v.length - 1];
 
-        for(int i=0; i<v[0].length(); i++) {
+        int min = first.length() < last.length() ? first.length() : last.length();
 
-            if(v[0].charAt(i) != l.charAt(i)) break;
+        for(int i=0; i<min; i++) {
 
-            sb.append(l.charAt(i));
+            if(first.charAt(i) != last.charAt(i)) break;
+
+            sb.append(last.charAt(i));
         }
         return sb.toString();
     }
