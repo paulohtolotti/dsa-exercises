@@ -23,11 +23,7 @@ class Transaction {
 function invalidTransactions(transactions) {
 
     //Inicia uma lista de booleanos com valores falsos
-    let invalidPositions = [];
-    const size = transactions.length;
-    for(let i=0; i<size; i++) {
-        invalidPositions[i] = false;
-    }
+    let invalidPositions = new Array(transactions.length).fill(false);
 
 
     for(let i=0; i<size; i++) {
