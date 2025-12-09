@@ -6,6 +6,12 @@ import java.util.HashSet;
 
 public class InvalidTransactions {
 
+    /**
+     * 
+     * @param transactions cada posição contém uma transação no formato
+     * {name}, {time}, {value}, {city}, separadas por vírgula, sendo time em minutos
+     * @return uma lista de transações inválidas.
+     */
     public static List<String> invalidTransactions(String[] transactions) {
 
         List<String> invalidList = new ArrayList<>();

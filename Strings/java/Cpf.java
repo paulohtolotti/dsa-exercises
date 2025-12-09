@@ -7,12 +7,12 @@ public class Cpf {
         System.out.println(removeNonDigits("874.092.172-93       "));
     }
 
+    /**
+     * 
+     * @param cpf CPF contendo ou não traços e pontos
+     * @return número do cpf atualizado, sem caracteres especiais
+     */
     public static String removeNonDigits(String cpf) {
-        /*
-        *   Method that recieves a string that can contain . and -
-        *   Returns a String containing only numbers.
-        */
-
         return cpf.trim().replaceAll("\\D", "");
     }
 }
