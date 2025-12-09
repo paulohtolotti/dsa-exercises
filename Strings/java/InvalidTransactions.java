@@ -1,9 +1,5 @@
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 import java.util.ArrayList;
-import java.util.HashSet;
-
 public class InvalidTransactions {
 
     /**
@@ -58,5 +54,3 @@ public class InvalidTransactions {
     }
 
 }
-
-// ["alice,20,800,mtv","alice,50,100,mtv","alice,51,100,frankfurt"]
