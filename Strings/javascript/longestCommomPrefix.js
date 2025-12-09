@@ -1,3 +1,10 @@
+/**
+ * 
+ * @param {Array<String>} strs
+ *         Array de Strings 
+ * @returns {String}
+ *          String contendo o maior prefixo comum ou "" caso não exista
+ */
 function longestCommomPrefix(strs) {
 
     if(strs.length == 1) return strs[0];
