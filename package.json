@@ -1,0 +1,27 @@
+{
+  "name": "dsa-exercises",
+  "version": "1.0.0",
+  "description": "Repositório com exercícios e desafios propostos no curso \"Estrutura de Dados e Algoritmos Expert\" do professor Nélio Alves.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ts" : "ts-node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulohtolotti/dsa-exercises.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/paulohtolotti/dsa-exercises/issues"
+  },
+  "homepage": "https://github.com/paulohtolotti/dsa-exercises#readme",
+  "devDependencies": {
+    "@types/node": "^24.10.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
