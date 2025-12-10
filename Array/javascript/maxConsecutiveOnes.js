@@ -2,7 +2,7 @@ function maxOnes(nums) {
     let max = 0, count = 0;
 
     for(const i of nums) {
-        console.log(i);
+
         if(i == 1) count++;
 
         if(i != 1 && count > 0) {
