@@ -1,7 +1,5 @@
 package Array.java;
 
-import java.util.Arrays;
-
 public class MaxConsecutivesOnes {
     
     //Solução menos eficiente. O(n²)
