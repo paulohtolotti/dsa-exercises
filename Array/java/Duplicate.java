@@ -1,13 +1,11 @@
 package Array.java;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class Duplicate {
 
-    //Força bruta - O(N²)
+
     public static boolean containsDuplicate(int[] nums) {
         
         Set<Integer> set = new HashSet<>();
