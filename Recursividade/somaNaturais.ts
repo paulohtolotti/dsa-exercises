@@ -1,0 +1,1 @@
+const sumNaturals = <T>(n:number, s:)
