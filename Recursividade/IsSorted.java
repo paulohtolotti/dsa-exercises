@@ -4,6 +4,13 @@ import java.util.Arrays;
 import java.util.List;
 
 public class IsSorted {
+    /**
+     * Método que avalia se uma lista de reais está ordenada em ordem crescente.
+     * Usa o conceito de cabeça e cauda de uma lista. Checa se o elemento na posição 0 é menor que o da posição 1.
+     * Se sim, passa a cauda da lista para a próxima chamda recursiva. Se não, a retorna falso.
+     * @param list
+     * @return
+     */
     public static boolean isSorted(List<Double> list) {
 
         if(list.size() <= 1 ) return true;
