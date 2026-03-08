@@ -15,74 +15,57 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class Main {
     public static void main(String[] args) {
         ObjectMapper mapper = new ObjectMapper();
-        
-        List<Integer> numList = new ArrayList<>(Arrays.asList(20, 9, 11, 10));
-        insertionSort(numList);
-        System.out.println(numList.toString());
 
-        // try {
-        //     // File json = new File("C:/Users/PauloTolotti/Documents/estudos/dsa-exercises/Ordenacao/sort-benchmark/src/main/resources/input.json");
-        //     // List<String> bubbleSortList = mapper.readValue(json, new TypeReference<List<String>>() {});
-        //     // List<String> quickSortList = List.copyOf(bubbleSortList);
-        //     // List<String> insertionSortList = List.copyOf(bubbleSortList);
+        try {
+            //Atualize para o caminho do seu arquivo
+            String path = "Ordenacao/sort-benchmark/src/main/resources/input.json";
+            File json = new File(path);
 
-        //     // List<String> testeList = new ArrayList<>(Arrays.asList("Apple", "Lemon", "Banana"));
-        //     // //System.out.println(testeList.get(1).compareTo(testeList.get(2)));
-        //     // bubbleSort(testeList);
-        //     // System.out.println(testeList.toString());
+            List<String> bubbleSortList = mapper.readValue(json, new TypeReference<List<String>>() {});
+            List<String> insertionSortList = new ArrayList<>(bubbleSortList);
+            List<String> quickSortList = new ArrayList<>(bubbleSortList);
+
+            // Cálculo da duração foi feito no próprio escopo das funções
+            bubbleSort(bubbleSortList);
+            insertionSort(insertionSortList);
+
+            // Como Quick Sort é recursivo, coloquei o cálculo de tempo fora da recursão.
+            Instant start = Instant.now();
+            quickSort(quickSortList, 0, quickSortList.size() - 1);
+            Instant end = Instant.now();
+            System.out.println("Quick sort: " + Duration.between(start, end).toMillis() + " ms");
 
 
-        // } catch(IOException e) {
-        //     e.printStackTrace();
-        // }
+        } catch(IOException e) {
+             e.printStackTrace();
+         }
     }
 
     public static void bubbleSort(List<String> arr) {
         Instant start = Instant.now();
         
         for(int i = 0; i < arr.size(); i++) {
-            // xyz abc
             for (int j = i + 1; j < arr.size() ; j++) {
                 if(arr.get(i).compareTo(arr.get(j)) > 0) {
-                    System.out.println("Swapping: " + arr.get(i) + " <---> " + arr.get(j));
                     String temp = arr.get(j);
                     arr.set(j, arr.get(i));
                     arr.set(i, temp);
-                 
                 }
             }
         }
 
         Instant end = Instant.now();
-        System.out.println("Bubble sort: " + Duration.between(start, end).toMillis());
+        System.out.println("Bubble sort: " + Duration.between(start, end).toMillis() + "ms");
     }
 
-    /**
-    *   [20, 9, 11, 10] => [9, 10, 11, 20];
-    *   
-    *   1ª 9 < 20 V TROCO i = 1
-    *       [9, 20, 11, 10]   i = 0 (nada a esquerda)
-    * 
-    *   2ª  [9, 20, 11, 10] i = 2 11 < 20 V
-    *       [9, 11, 20, 10] i = 1 11 < 9 F break
-    * 
-    *   3ª  [9, 11, 20, 10]  i = 3 10 < 20 V
-    *       [9, 11, 10, 20]  i = 2  10 < 11 V
-    *       [9, 10, 11, 20]  i = 1  10 < 9 F break
-    *       
-    *   4ª                   i > lenght (4) FALSO    
-     */ 
-    public static void insertionSort(List<Integer> arr) {
+    public static void insertionSort(List<String> arr) {
         Instant start = Instant.now();
 
-        
         for(int i = 1; i < arr.size(); i ++) {
-            // int j = i - 1; // atual - anterior, começando do 1
-            // int k = i;
             int k = i;
-            while( k > 0 && arr.get(k - 1) > arr.get(k)) {
+            while( k > 0 && arr.get(k - 1).compareTo(arr.get(k)) > 0) {
                 // swap
-                int temp = arr.get(k - 1);
+                String temp = arr.get(k - 1);
                 arr.set(k - 1, arr.get(k));
                 arr.set(k, temp);
                 k--;
@@ -90,12 +73,40 @@ public class Main {
         }
 
         Instant end = Instant.now();
-        System.out.println("Insertion sort: " + Duration.between(start, end).toMillis());
+        System.out.println("Insertion sort: " + Duration.between(start, end).toMillis() + "ms");
     }
 
-    public static void swap(String[] arr, int left, int right) {
-        String temp = arr[left];
-        arr[left] = arr[right];
-        arr[right] = temp;
+    public static void quickSort(List<String> arr, int left, int right) {
+
+        if (left < right) {
+            int pivot = partition(arr, left, right);
+            quickSort(arr, left, pivot - 1);
+            quickSort(arr, pivot + 1, right);
+        }
+
     }
+
+    public static int partition(List<String> arr, int left, int right) {
+        String pivot = arr.get(left);
+        String temp;
+        int i = left;
+
+        for(int j = left + 1; j <= right; j++) {
+
+            if(arr.get(j).compareTo(pivot) <= 0) {
+                i++;
+                temp = arr.get(i);
+                arr.set(i, arr.get(j));
+                arr.set(j, temp);
+            }
+
+        }
+
+        temp = arr.get(left);
+        arr.set(left, arr.get(i));
+        arr.set(i, temp);
+
+        return i;
+    }
+
 }
