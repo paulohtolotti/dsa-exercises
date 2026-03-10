@@ -6,3 +6,9 @@ Contém exercícios do curso e problemas do leetcode.
 
 Feito em Java e JavaScript
 
+## TÓPICOS ABORDADOS
+
+- Recursividade e recursividade de cauda
+- Ordenação: bubble sort, quick sort, insertion sort, merge sort e busca binária
+- Strings: regex e manipulações gerais
+- Listas: listas ligadas e listas duplamente encadeadas
