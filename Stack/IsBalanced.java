@@ -1,10 +1,12 @@
-import java.util.List;
-import java.util.ArrayList;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
  * Problema is-balanced.
  * Avalia uma String de parênteses e checa se está balanceada, ou seja, se todo parênteses aberto está fechado.
  * Implementação de operações de fila (push e pop) de maneira simplificada, via lista.
+ * (: adiciona '(' na pilha
+ * ): remove '(' da pilha.
  */
 public class IsBalanced {
     
@@ -22,21 +24,21 @@ public class IsBalanced {
     }
 
     public static boolean isBalanced(String expression) {
-        List<String> l = new ArrayList<>();
+        Deque<String> l = new ArrayDeque<>();
         int size = expression.length();
         if(size == 0) return false;
 
         for(int i = 0; i < size; i++) {
             if(expression.charAt(i) == '(') {
-                l.add("(");
+                l.push("(");
             } 
 
             if(expression.charAt(i) == ')') {
-                if(l.size() == 0) continue; // Evitar lançar exceção
-                l.removeLast();
+                if(l.isEmpty()) return false; // Evitar lançar exceção
+                l.pop();
             }
         }
 
-        return l.size() == 0 ? true : false;
+        return l.isEmpty();
     }
 }
