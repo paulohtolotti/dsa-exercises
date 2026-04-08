@@ -1,5 +1,6 @@
 def is_balanced(expr: str) -> bool:
     stack = []
+    stack = Deque()
     for i in expr:
         if(i == "("):
             stack.append("(")
