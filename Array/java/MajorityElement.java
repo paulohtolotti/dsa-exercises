@@ -1,3 +1,8 @@
+/**
+ * Problema referência: https://leetcode.com/problems/majority-element/submissions/1972658975/?envType=study-plan-v2&envId=top-interview-150
+ * Solução utilizada: tabela hash para contar as ocorrências
+ * Complexidade temporal: O(N)
+ */
 import java.util.HashMap;
 import java.util.Map;
 

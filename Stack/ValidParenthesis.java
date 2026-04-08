@@ -1,11 +1,11 @@
-import java.util.ArrayDeque;
-import java.util.Deque;
-
 /**
  * Problema valid-parenthesis Leetcode (https://leetcode.com/problems/valid-parentheses/description/)
  * Checar se uma String com (), {} ou [] é válida.
  * 
  */
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 public class ValidParenthesis {
     
     public static void main(String[] args) {
