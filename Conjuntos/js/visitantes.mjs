@@ -1,3 +1,7 @@
+/**
+ * Exercício contagem de visitantes únicos.
+ * Dado um arquivo csv (./dados.mjs), contar quantos visitantes únicos existem
+ */
 import { dataset } from './dados.mjs';
 
 function calculateUniqueVisitors(data) {
